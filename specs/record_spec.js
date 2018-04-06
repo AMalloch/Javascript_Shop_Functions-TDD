@@ -30,5 +30,4 @@ describe('Record', function () {
     assert.strictEqual(record1.allProperties(), "Artist: Alan Title: Mind Alan Genre: Acid Jazz Price: 10");
   });
 
-
 });

@@ -23,5 +23,10 @@ Store.prototype.addRecord = function (record) {
   this.inventory.push(record);
 };
 
+Store.prototype.recordList = function () {
+  return _.forEach(this.inventory, function(element) {
+  });
+};
+
 
 module.exports = Store;
