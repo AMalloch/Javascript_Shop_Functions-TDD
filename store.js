@@ -15,6 +15,10 @@ Store.prototype.getCity = function () {
   this.city
 };
 
+Store.prototype.getCity = function () {
+  this.balance
+};
+
 Store.prototype.addRecord = function (record) {
   this.inventory.push(record);
 };
