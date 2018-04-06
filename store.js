@@ -7,6 +7,10 @@ var Store = function(name, city, balance) {
   this.inventory = [];
 }
 
+Store.prototype.getName = function () {
+  this.name
+};
+
 Store.prototype.addRecord = function (record) {
   this.inventory.push(record);
 };
