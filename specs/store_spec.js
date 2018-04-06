@@ -39,5 +39,11 @@ describe('Store', function () {
     assert.deepStrictEqual(store1.recordList(), [record1, record2]);
   });
 
+  it("can sell a record", function(){
+    store1.sellRecord(record1);
+    assert.deepStrictEqual(store1.inventory, [record2]);
+    assert.strictEqual(store1.balance, 10);
+  })
+
 
 });
