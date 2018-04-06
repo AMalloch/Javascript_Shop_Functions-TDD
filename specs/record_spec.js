@@ -1,7 +1,7 @@
 var assert = require('assert')
 var Record = require('../record.js')
 
-describe('Store', function () {
+describe('Record', function () {
 
 
   var record1;
@@ -24,6 +24,10 @@ describe('Store', function () {
 
   it("can get record price", function() {
     assert.deepStrictEqual(record1.price, 10);
+  });
+
+  it("can return all properties of a record as a string", function(){
+    assert.strictEqual(record1.allProperties(), "Artist: Alan Title: Mind Alan Genre: Acid Jazz Price: 10");
   });
 
 

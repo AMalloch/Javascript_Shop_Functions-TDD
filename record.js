@@ -23,5 +23,8 @@ Record.prototype.getPrice = function () {
   this.price
 };
 
+Record.prototype.allProperties = function () {
+  return `Artist: ${this.artist} Title: ${this.title} Genre: ${this.genre} Price: ${this.price}`
+};
 
 module.exports = Record;
