@@ -1,4 +1,6 @@
-var Record = function() {
+var _ = require('lodash')
+
+var Store = function(name, city, balance) {
   this.name = name;
   this.city = city;
   this.balance = balance;
