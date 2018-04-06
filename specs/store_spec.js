@@ -22,6 +22,10 @@ describe('Store', function () {
     assert.strictEqual(store1.name, "Gussy's Root'n Toot'n Records");
   });
 
+  it("can get store city", function() {
+    assert.strictEqual(store1.city, "Glasgow");
+  });
+
   it("can add record to the store inventory", function() {
     store1.addRecord(record3);
     assert.deepStrictEqual(store1.inventory, [record1, record2, record3]);

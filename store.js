@@ -11,6 +11,10 @@ Store.prototype.getName = function () {
   this.name
 };
 
+Store.prototype.getCity = function () {
+  this.city
+};
+
 Store.prototype.addRecord = function (record) {
   this.inventory.push(record);
 };
