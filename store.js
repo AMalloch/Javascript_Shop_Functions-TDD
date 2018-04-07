@@ -53,4 +53,9 @@ Store.prototype.financialInfo = function () {
   return `Balance: ${this.balance} Stock Value: ${totalStockValue}`
 };
 
+Store.prototype.findRecordByGenre = function (genre) {
+  const recordsByGenre = this.inventory.filter(record => record.genre === genre);
+  return recordsByGenre;
+};
+
 module.exports = Store;

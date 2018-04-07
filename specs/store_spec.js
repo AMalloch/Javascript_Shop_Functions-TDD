@@ -13,7 +13,7 @@ describe('Store', function () {
     store1 = new Store("Gussy's Root'n Toot'n Records", "Glasgow", 0);
     record1 = new Record("Alan", "Mind Alan", "Acid Jazz", 10);
     record2 = new Record("Adam", "Who?", "Funk", 9);
-    record3 = new Record("Daniel O'Donnell", "My best pal Jesus", "Ancient", 5);
+    record3 = new Record("Donald O'Daniel", "Chewin the fat", "Funk", 5);
     store1.addRecord(record1);
     store1.addRecord(record2);
   });
@@ -52,5 +52,10 @@ describe('Store', function () {
   it("can return all financial information of a store", function(){
     assert.strictEqual(store1.financialInfo(), "Balance: 0 Stock Value: 19");
   });
+
+  it("can view records of a certain genre", function(){
+    store1.addRecord(record3);
+    assert.deepStrictEqual(store1.findRecordByGenre("Funk"), [record2, record3])
+  })
 
 });
