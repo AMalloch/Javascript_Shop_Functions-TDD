@@ -42,4 +42,15 @@ Store.prototype.sellRecord = function (record) {
   }.bind(this));
 };
 
+Store.prototype.stockValue = function () {
+  let stockValue = 0
+  this.inventory.forEach(record => stockValue += record.price);
+  return stockValue;
+};
+
+Store.prototype.financialInfo = function () {
+  let totalStockValue = this.stockValue();
+  return `Balance: ${this.balance} Stock Value: ${totalStockValue}`
+};
+
 module.exports = Store;

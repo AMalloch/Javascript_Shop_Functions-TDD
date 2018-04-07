@@ -43,7 +43,14 @@ describe('Store', function () {
     store1.sellRecord(record1);
     assert.deepStrictEqual(store1.inventory, [record2]);
     assert.strictEqual(store1.balance, 10);
+  });
+
+  it("can total inventory value of a store", function(){
+    assert.strictEqual(store1.stockValue(), 19)
   })
 
+  it("can return all financial information of a store", function(){
+    assert.strictEqual(store1.financialInfo(), "Balance: 0 Stock Value: 19");
+  });
 
 });
