@@ -43,10 +43,11 @@ describe('Customer', function () {
 
   it("can sum value of items in bag", function(){
     assert.strictEqual(customer1.bagItemsTotalValue(), 9);
-  })
+  });
 
-  it("can view value of items in bag", function(){
-    assert.strictEqual(customer1.viewBagItemsTotalValue(), "Bag Value: 9")
-  })
+  it("can filter bag items/records by genre", function() {
+    customer1.addRecordToBag(record1);
+    assert.deepStrictEqual(customer1.filterBagItems("Funk"), [record2]);
+  });
 
 });

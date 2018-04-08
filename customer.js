@@ -37,9 +37,9 @@ Customer.prototype.bagItemsTotalValue = function () {
     return _.sumBy(this.bag, 'price');
 };
 
-Customer.prototype.viewBagItemsTotalValue = function () {
-  value = this.bagItemsTotalValue();
-  return `Bag Value: ${value}`;
+Customer.prototype.filterBagItems = function (genre) {
+  const result = this.bag.filter(record => record.genre === genre);
+  return result;
 };
 
 module.exports = Customer;
