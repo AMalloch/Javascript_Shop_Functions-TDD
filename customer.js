@@ -6,4 +6,8 @@ var Customer = function (name, money){
   this.bag = [];
 }
 
+Customer.prototype.addRecordToBag = function (record) {
+  this.bag.push(record);
+};
+
 module.exports = Customer;
