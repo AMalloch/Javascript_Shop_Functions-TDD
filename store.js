@@ -62,10 +62,18 @@ Store.prototype.findRecordByGenre = function (genre) {
   return recordsByGenre;
 };
 
-Store.prototype.sellRecordToCustomer = function (customer1 ,record) {
-  if(customer1.money >= record.price){
+Store.prototype.sellRecordToCustomer = function (customer ,record) {
+  if(customer.money >= record.price){
     this.sellRecord(record);
-    customer1.buyRecord(record);
+    customer.buyRecord(record);
+  };
+};
+
+Store.prototype.buyRecordFromCustomer = function (customer, record) {
+  if(this.balance >= record.price){
+    this.balance -= record.price
+    customer.sellRecord(record);;
+    this.addRecord(record);
   };
 };
 

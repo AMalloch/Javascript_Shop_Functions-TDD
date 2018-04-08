@@ -24,4 +24,13 @@ Customer.prototype.buyRecord = function (record) {
     this.addRecordToBag(record);
 };
 
+Customer.prototype.sellRecord = function (record) {
+  _.forEach(this.bag, function(element){
+    if(record === element){
+      this.money += record.price
+      this.removeRecordFromBag(record);
+    };
+  }.bind(this));
+};
+
 module.exports = Customer;

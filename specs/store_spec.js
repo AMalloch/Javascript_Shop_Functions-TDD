@@ -12,7 +12,7 @@ describe('Store', function () {
   var customer1;
 
   beforeEach(function () {
-    store1 = new Store("Gussy's Root'n Toot'n Records", "Glasgow", 0);
+    store1 = new Store("Gussy's Root'n Toot'n Records", "Glasgow", 200);
     record1 = new Record("Alan", "Mind Alan", "Acid Jazz", 10);
     record2 = new Record("Adam", "Who?", "Funk", 9);
     record3 = new Record("Donald O'Daniel", "Chewin the fat", "Funk", 5);
@@ -30,7 +30,7 @@ describe('Store', function () {
   });
 
   it("can get store city", function() {
-    assert.strictEqual(store1.balance, 0);
+    assert.strictEqual(store1.balance, 200);
   });
 
   it("can add record to the store inventory", function() {
@@ -50,7 +50,7 @@ describe('Store', function () {
   it("can sell a record", function(){
     store1.sellRecord(record1);
     assert.deepStrictEqual(store1.inventory, [record2]);
-    assert.strictEqual(store1.balance, 10);
+    assert.strictEqual(store1.balance, 210);
   });
 
   it("can total inventory value of a store", function(){
@@ -58,7 +58,7 @@ describe('Store', function () {
   })
 
   it("can return all financial information of a store", function(){
-    assert.strictEqual(store1.financialInfo(), "Balance: 0 Stock Value: 19");
+    assert.strictEqual(store1.financialInfo(), "Balance: 200 Stock Value: 19");
   });
 
   it("can view records of a certain genre", function(){
@@ -69,9 +69,15 @@ describe('Store', function () {
   it("can sell record to a customer", function(){
     store1.sellRecordToCustomer(customer1, record1)
     assert.deepStrictEqual(store1.inventory, [record2]);
-    assert.strictEqual(store1.balance, 10);
+    assert.strictEqual(store1.balance, 210);
     assert.deepStrictEqual(customer1.bag, [record1])
     assert.strictEqual(customer1.money, 190)
+  });
+
+  it("can buy from customer", function() {
+    store1.buyRecordFromCustomer(customer1, record3);
+    assert.deepStrictEqual(store1.inventory, [record1, record2, record3])
+    assert.strictEqual(store1.balance, 195)
   });
 
 });
