@@ -41,4 +41,12 @@ describe('Customer', function () {
     assert.strictEqual(customer1.money, 209)
   });
 
+  it("can sum value of items in bag", function(){
+    assert.strictEqual(customer1.bagItemsTotalValue(), 9);
+  })
+
+  it("can view value of items in bag", function(){
+    assert.strictEqual(customer1.viewBagItemsTotalValue(), "Bag Value: 9")
+  })
+
 });

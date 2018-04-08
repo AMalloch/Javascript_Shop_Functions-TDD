@@ -33,4 +33,13 @@ Customer.prototype.sellRecord = function (record) {
   }.bind(this));
 };
 
+Customer.prototype.bagItemsTotalValue = function () {
+    return _.sumBy(this.bag, 'price');
+};
+
+Customer.prototype.viewBagItemsTotalValue = function () {
+  value = this.bagItemsTotalValue();
+  return `Bag Value: ${value}`;
+};
+
 module.exports = Customer;
