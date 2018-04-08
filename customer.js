@@ -46,4 +46,13 @@ Customer.prototype.mostValuableRecord = function () {
   return _.maxBy(this.bag, 'price');
 };
 
+Customer.prototype.sortBagByPrice = function (desired_order) {
+  if(desired_order === "decending"){
+   bagByPrice = _.sortBy(this.bag, ['price']);
+    return _.reverse(bagByPrice);
+  }else if(desired_order === "ascending"){
+    return _.sortBy(this.bag, ['price']);
+  };
+};
+
 module.exports = Customer;

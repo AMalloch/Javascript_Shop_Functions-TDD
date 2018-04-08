@@ -55,4 +55,10 @@ describe('Customer', function () {
     assert.strictEqual(customer1.mostValuableRecord(), record1)
   })
 
+  it("can sort bag by price in ascending order", function() {
+    customer1.addRecordToBag(record1);
+    assert.deepStrictEqual(customer1.sortBagByPrice("decending"), [record1, record2])
+    assert.deepStrictEqual(customer1.sortBagByPrice("ascending"), [record2, record1])
+  })
+
 });
