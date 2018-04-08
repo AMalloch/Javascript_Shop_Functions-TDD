@@ -35,6 +35,11 @@ describe('Store', function () {
     assert.deepStrictEqual(store1.inventory, [record1, record2, record3]);
   });
 
+  it("can remove record to the store inventory", function() {
+    store1.removeRecord(record2);
+    assert.deepStrictEqual(store1.inventory, [record1]);
+  });
+
   it("can display all objects in an array", function(){
     assert.deepStrictEqual(store1.recordList(), [record1, record2]);
   });

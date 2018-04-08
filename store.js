@@ -23,8 +23,15 @@ Store.prototype.addRecord = function (record) {
   this.inventory.push(record);
 };
 
+// very similar to sellRecord but I figured it
+// would be good to just plain remove stock as well.
 Store.prototype.removeRecord = function (record) {
-  this.inventory.push(record);
+  _.forEach(this.inventory, function(element){
+    if(record === element){
+      const index = this.inventory.indexOf(element);
+      this.inventory.splice(index, 1);
+    };
+  }.bind(this));
 };
 
 Store.prototype.recordList = function () {
@@ -36,8 +43,7 @@ Store.prototype.sellRecord = function (record) {
   _.forEach(this.inventory, function(element){
     if(record === element){
       this.balance += element.price
-      const index = this.inventory.indexOf(element);
-      this.inventory.splice(index, 1);
+      this.removeRecord(record);
     };
   }.bind(this));
 };
