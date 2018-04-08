@@ -18,4 +18,10 @@ describe('Store', function () {
     assert.deepStrictEqual(customer1.bag, [record1]);
   });
 
+  it("can add record to customer bag", function() {
+    customer1.addRecordToBag(record1);
+    customer1.removeRecordFromBag(record1);
+    assert.deepStrictEqual(customer1.bag, []);
+  });
+
 });

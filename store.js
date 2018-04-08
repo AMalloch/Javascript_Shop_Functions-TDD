@@ -23,8 +23,6 @@ Store.prototype.addRecord = function (record) {
   this.inventory.push(record);
 };
 
-// very similar to sellRecord but I figured it
-// would be good to just plain remove stock as well.
 Store.prototype.removeRecord = function (record) {
   _.forEach(this.inventory, function(element){
     if(record === element){
