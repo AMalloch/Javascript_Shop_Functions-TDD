@@ -39,7 +39,7 @@ Customer.prototype.bagItemsTotalValue = function () {
 
 Customer.prototype.filterBagItems = function (genre) {
   const result = this.bag.filter(record => record.genre === genre);
-  return result;
+  return _.sumBy(result, 'price');
 };
 
 module.exports = Customer;
