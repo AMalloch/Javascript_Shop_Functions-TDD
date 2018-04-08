@@ -55,4 +55,12 @@ Customer.prototype.sortBagByPrice = function (desired_order) {
   };
 };
 
+Customer.prototype.compareBagValues = function (customer1, customer2) {
+  const customerOneBagValue = customer1.bagItemsTotalValue();
+  const customerTwoBagValue = customer2.bagItemsTotalValue();
+  return `First Customer Bag Value: ${customerOneBagValue} Second Customer Bag Value: ${customerTwoBagValue}`
+};
+
+
+
 module.exports = Customer;

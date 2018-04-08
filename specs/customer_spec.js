@@ -7,12 +7,14 @@ describe('Customer', function () {
 
 
   var customer1;
+  var customer2;
   var record1;
   var record2;
   var store1;
 
   beforeEach(function () {
     customer1 = new Customer("Mike", 200);
+    customer2 = new Customer("Ronald", 300);
     record1 = new Record("Alan", "Mind Alan", "Acid Jazz", 10);
     record2 = new Record("Adam", "Who?", "Funk", 9);
     store1 = new Store("Gussy's Root'n Toot'n Records", "Glasgow", 20);
@@ -53,12 +55,19 @@ describe('Customer', function () {
   it("can view most valuable item/record", function() {
     customer1.addRecordToBag(record1);
     assert.strictEqual(customer1.mostValuableRecord(), record1)
-  })
+  });
 
   it("can sort bag by price in ascending order", function() {
     customer1.addRecordToBag(record1);
     assert.deepStrictEqual(customer1.sortBagByPrice("decending"), [record1, record2])
     assert.deepStrictEqual(customer1.sortBagByPrice("ascending"), [record2, record1])
+  });
+
+  // reduce both bag values by price, then merge the arrays and return??
+  // just return the values as a string??
+  it("can compare bag value with another customers bag value", function() {
+    customer2.addRecordToBag(record1);
+    assert.strictEqual(customer1.compareBagValues(customer1, customer2), "First Customer Bag Value: 9 Second Customer Bag Value: 10");
   })
 
 });
