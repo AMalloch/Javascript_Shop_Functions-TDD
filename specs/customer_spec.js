@@ -50,4 +50,9 @@ describe('Customer', function () {
     assert.strictEqual(customer1.filterBagItems("Funk"), 9);
   });
 
+  it("can view most valuable item/record", function() {
+    customer1.addRecordToBag(record1);
+    assert.strictEqual(customer1.mostValuableRecord(), record1)
+  })
+
 });

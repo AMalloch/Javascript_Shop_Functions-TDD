@@ -42,4 +42,8 @@ Customer.prototype.filterBagItems = function (genre) {
   return _.sumBy(result, 'price');
 };
 
+Customer.prototype.mostValuableRecord = function () {
+  return _.maxBy(this.bag, 'price');
+};
+
 module.exports = Customer;
