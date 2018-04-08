@@ -24,4 +24,12 @@ describe('Store', function () {
     assert.deepStrictEqual(customer1.bag, []);
   });
 
+  it("can buy from store", function() {
+    customer1.buyRecord(record1)
+    assert.deepStrictEqual(customer1.bag, [record1])
+    assert.strictEqual(customer1.money, 190)
+  });
+
+
+
 });

@@ -40,7 +40,7 @@ Store.prototype.recordList = function () {
 Store.prototype.sellRecord = function (record) {
   _.forEach(this.inventory, function(element){
     if(record === element){
-      this.balance += element.price
+      this.balance += record.price
       this.removeRecord(record);
     };
   }.bind(this));
@@ -60,6 +60,13 @@ Store.prototype.financialInfo = function () {
 Store.prototype.findRecordByGenre = function (genre) {
   const recordsByGenre = this.inventory.filter(record => record.genre === genre);
   return recordsByGenre;
+};
+
+Store.prototype.sellRecordToCustomer = function (customer1 ,record) {
+  if(customer1.money >= record.price){
+    this.sellRecord(record);
+    customer1.buyRecord(record);
+  };
 };
 
 module.exports = Store;

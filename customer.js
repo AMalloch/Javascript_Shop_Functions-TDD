@@ -19,4 +19,9 @@ Customer.prototype.removeRecordFromBag = function (record) {
   }.bind(this));
 };
 
+Customer.prototype.buyRecord = function (record) {
+    this.money -= record.price;
+    this.addRecordToBag(record);
+};
+
 module.exports = Customer;
